@@ -8,6 +8,13 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
+/*
+ * Ticky Tacky
+ * a Tic Tac Toe app for Android
+ * 
+ * By: Annabel Hung
+ * Email: annabel.hung@gmail.com
+ */
 public class TickyTackyActivity extends Activity implements OnClickListener {
     
     private Button grid[][] = new Button[3][3];;

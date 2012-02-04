@@ -1,0 +1,25 @@
+Ticky Tacky
+A Tic Tac Toe app for Android!
+
+About
+- Author: Annabel Hung
+- Contact: annabel.hung@gmail.com
+
+Download
+- TODO: APK download/Android Market link?
+
+How to Play
+- Press the buttons to get three X marks in a row before the opponent gets three O marks!
+- Horizontal, vertical, and diagonal 3-in-a-row marks are valid.
+- The game ends in a draw if all buttons are marked and there are no 3-in-a-rows :(
+- Press the reset button at any time to clear the grid.
+
+Goals
+- to practice and improve my programming
+- to create a simple game
+- to distract myself from bad cramps (this is how the project started, true story)
+
+Serious Stuff
+- I do not claim Tic Tac Toe as my original idea.
+- Thus far, I am the sole contributor to the project.
+- This app and its future forms will remain free and open source.
