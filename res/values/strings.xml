@@ -3,5 +3,7 @@
 
     <string name="hello">Hello World, TickyTackyActivity!</string>
     <string name="app_name">TickyTacky</string>
+    <string name="about_title">Ticky Tacky by Annabel Hung</string>
+    <string name="about_text">You are X. Place three X\'s such that they are adjacent to each other vertically, horizontally, or diagonally before the opponent O does first.\n\nI do not claim credit for coming up with this game (Wikipedia traces the game\'s origins to the Roman Empire), but I did write the code and doodle out the art. Enjoy :)</string>
 
 </resources>

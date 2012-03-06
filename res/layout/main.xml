@@ -4,7 +4,7 @@
     android:layout_height="fill_parent"
     android:background="@drawable/back"
     android:orientation="vertical" >
-
+
     <TextView
         android:id="@+id/tv_title"
         android:layout_width="fill_parent"
@@ -13,14 +13,14 @@
         android:gravity="center"
         android:minLines="3"
         android:padding="20dp" />
-
+
     <LinearLayout
         android:id="@+id/linearLayout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center" 
         android:padding="5px">
-
+
         <Button
             android:id="@+id/button1"
             android:layout_width="wrap_content"
@@ -28,8 +28,9 @@
             android:background="@drawable/button"
             android:height="70px"
             android:onClick="onClick"
-            android:width="70px" />
-
+            android:width="70px"
+            android:textColor="#9ccb64" />
+
         <Button
             android:id="@+id/button2"
             android:layout_width="wrap_content"
@@ -37,10 +38,10 @@
             android:background="@drawable/button"
             android:height="70px"   
             android:width="70px"
-            android:onClick="onClick" >
-
-</Button>
-
+            android:onClick="onClick"
+            android:textColor="#9ccb64" >
+        </Button>
+        
         <Button
             android:id="@+id/button3"
             android:layout_width="wrap_content"
@@ -48,7 +49,8 @@
             android:background="@drawable/button"
             android:height="70px"
             android:onClick="onClick"
-            android:width="70px" />
+            android:width="70px"
+            android:textColor="#9ccb64" />
 
     </LinearLayout>
 
@@ -58,7 +60,7 @@
         android:layout_height="wrap_content"
         android:gravity="center" 
         android:padding="5px">
-
+        
         <Button
             android:id="@+id/button4"
             android:layout_width="wrap_content"
@@ -66,8 +68,9 @@
             android:background="@drawable/button"
             android:height="70px"
             android:onClick="onClick"
-            android:width="70px" />
-
+            android:width="70px" 
+            android:textColor="#9ccb64"/>
+        
         <Button
             android:id="@+id/button5"
             android:layout_width="wrap_content"
@@ -75,8 +78,9 @@
             android:background="@drawable/button"
             android:height="70px"
             android:onClick="onClick"
-            android:width="70px" />
-
+            android:width="70px"
+            android:textColor="#9ccb64" />
+
         <Button
             android:id="@+id/button6"
             android:layout_width="wrap_content"
@@ -84,17 +88,17 @@
             android:background="@drawable/button"
             android:height="70px"
             android:onClick="onClick"
-            android:width="70px" />
+            android:width="70px" 
+            android:textColor="#9ccb64"/>
 
     </LinearLayout>
-
+
     <LinearLayout
         android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center" 
-        android:padding="5px">
-
+        android:padding="5px">
         <Button
             android:id="@+id/button7"
             android:layout_width="wrap_content"
@@ -102,8 +106,8 @@
             android:background="@drawable/button"
             android:height="70px"
             android:onClick="onClick"
-            android:width="70px" />
-
+            android:width="70px" 
+            android:textColor="#9ccb64"/>
         <Button
             android:id="@+id/button8"
             android:layout_width="wrap_content"
@@ -111,8 +115,8 @@
             android:background="@drawable/button"
             android:height="70px"
             android:onClick="onClick"
-            android:width="70px" />
-
+            android:width="70px" 
+            android:textColor="#9ccb64"/>
         <Button
             android:id="@+id/button9"
             android:layout_width="wrap_content"
@@ -120,7 +124,8 @@
             android:background="@drawable/button"
             android:height="70px"
             android:onClick="onClick"
-            android:width="70px" />
+            android:width="70px" 
+            android:textColor="#9ccb64"/>
 
     </LinearLayout>
 
