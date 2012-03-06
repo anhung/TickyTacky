@@ -17,10 +17,11 @@ import android.widget.Button;
  */
 public class TickyTackyActivity extends Activity implements OnClickListener {
     
-    private Button grid[][] = new Button[3][3];;
-    private Button reset;
-    private int buttonsPressed;
+    private Button bGrid[][] = new Button[3][3];
     boolean myTurn, myStart, gameOver;
+    static final String PLAYER = "X";
+    static final String COMPUTER = "O";
+    static final String UNMARKED = "";
     
     /*
      * Required Android stuff. ^__^
@@ -29,17 +30,17 @@ public class TickyTackyActivity extends Activity implements OnClickListener {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        loadViews();
+        initializeViews();
         myTurn = true;
         myStart = true;
         gameOver = false;
     }
     
     /*
-     * Helper function to load all the views 
-     * and set their listeners.
+     * Helper function to initialize the graphical grid
+     * and other views.
      */
-    private void loadViews() {
+    private void initializeViews() {
         /*
          *  Grid set up
          *  00 | 01 | 02
@@ -47,22 +48,19 @@ public class TickyTackyActivity extends Activity implements OnClickListener {
          *  20 | 21 | 22
          */
         
-        reset = (Button) findViewById(R.id.reset);
-        reset.setOnClickListener(this); 
-        
-        grid[0][0] = (Button) findViewById(R.id.button1);
-        grid[0][1] = (Button) findViewById(R.id.button2);
-        grid[0][2] = (Button) findViewById(R.id.button3);
-        grid[1][0] = (Button) findViewById(R.id.button4);
-        grid[1][1] = (Button) findViewById(R.id.button5);
-        grid[1][2] = (Button) findViewById(R.id.button6);
-        grid[2][0] = (Button) findViewById(R.id.button7);
-        grid[2][1] = (Button) findViewById(R.id.button8);
-        grid[2][2] = (Button) findViewById(R.id.button9);
+        bGrid[0][0] = (Button) findViewById(R.id.button1);
+        bGrid[0][1] = (Button) findViewById(R.id.button2);
+        bGrid[0][2] = (Button) findViewById(R.id.button3);
+        bGrid[1][0] = (Button) findViewById(R.id.button4);
+        bGrid[1][1] = (Button) findViewById(R.id.button5);
+        bGrid[1][2] = (Button) findViewById(R.id.button6);
+        bGrid[2][0] = (Button) findViewById(R.id.button7);
+        bGrid[2][1] = (Button) findViewById(R.id.button8);
+        bGrid[2][2] = (Button) findViewById(R.id.button9);
 
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                grid[i][j].setOnClickListener(this);
+                bGrid[i][j].setOnClickListener(this);
             }
         }
     }
@@ -75,18 +73,9 @@ public class TickyTackyActivity extends Activity implements OnClickListener {
      */
     @Override
     public void onClick(View view) {
-        // TODO: incomplete
-        if (((Button)view).equals(reset)) {
-            for (int i = 0; i < 3; i++) {
-                for (int j = 0; j < 3; j++) {
-                    grid[i][j].setText("");
-                }
-            }
-            myStart = !myStart;
-        }
-        else if (isValidMove((Button)view)) {
-            if (myTurn && !gameOver) {
-                ((Button) view).setText("X");
+        if (!isGameOver() && isValidMove((Button)view)) {
+            if (myTurn) {
+                ((Button) view).setText(PLAYER);
                 myTurn = false;
                 opponentTurn();
                 myTurn = true;
@@ -100,12 +89,18 @@ public class TickyTackyActivity extends Activity implements OnClickListener {
      */
     private void opponentTurn() {
         // TODO: incomplete
-        Random r = new Random();
-        Button b = grid[r.nextInt(3)][r.nextInt(3)];
-        while (!isValidMove(b)) {
-            b = grid[r.nextInt(3)][r.nextInt(3)];
+        if (!isNoMoreMoves()) {
+            Random r = new Random();
+            int i = r.nextInt(3);
+            int j = r.nextInt(3);
+            Button b = bGrid[i][j];
+            while (!isValidMove(b)) {
+                i = r.nextInt(3);
+                j = r.nextInt(3);
+                b = bGrid[i][j];
+            }
+            b.setText(COMPUTER);
         }
-        b.setText("O");
     }
     
     /*
@@ -124,7 +119,7 @@ public class TickyTackyActivity extends Activity implements OnClickListener {
         Button b;
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                b = grid[i][j];
+                b = bGrid[i][j];
                 if (isValidMove(b)) {
                     return false;
                 }
@@ -136,9 +131,47 @@ public class TickyTackyActivity extends Activity implements OnClickListener {
     /*
      * Check if the specified button is
      * part of a winning 3-in-a-row.
+     * Kind of an inefficient algorithm...
      */
-    private boolean isWinner(Button b) {
-        // TODO: incomplete
+    private boolean isWinner(String mark) {
+        // CHECKING THE ROWS
+        for (int i = 0; i < 3; i++) {
+            if (getMark(bGrid[i][0]).equals(mark) &&
+                getMark(bGrid[i][1]).equals(mark) &&
+                getMark(bGrid[i][2]).equals(mark)) {
+                return true;
+            }
+        }
+        
+        // CHECKING THE COLUMNS
+        for (int j = 0; j < 3; j++) {
+            if (getMark(bGrid[0][j]).equals(mark) &&
+                getMark(bGrid[1][j]).equals(mark) &&
+                getMark(bGrid[2][j]).equals(mark)) {
+                return true;
+            }
+        }
+        
+        // CHECK TWO DIAGONALS
+        if (getMark(bGrid[0][0]).equals(mark) &&
+            getMark(bGrid[1][1]).equals(mark) &&
+            getMark(bGrid[2][2]).equals(mark)) {
+            return true;
+        }
+        if (getMark(bGrid[0][2]).equals(mark) &&
+            getMark(bGrid[1][1]).equals(mark) &&
+            getMark(bGrid[2][0]).equals(mark)) {
+            return true;
+        }
+            
         return false;
+    }
+
+    private String getMark(Button b) {
+        return b.getText().toString();
+    }
+    
+    private boolean isGameOver() {
+        return isWinner(PLAYER) || isWinner(COMPUTER);
     }
 }

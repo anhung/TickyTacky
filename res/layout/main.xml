@@ -2,15 +2,17 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="@drawable/back"
     android:orientation="vertical" >
-
+
     <TextView
         android:id="@+id/tv_title"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Ticky Tacky"
+        android:background="@drawable/logo"
         android:gravity="center"
-        android:minLines="3" />
+        android:minLines="3"
+        android:padding="20dp" />
 
     <LinearLayout
         android:id="@+id/linearLayout1"
@@ -18,31 +20,35 @@
         android:layout_height="wrap_content"
         android:gravity="center" 
         android:padding="5px">
-
+
         <Button
             android:id="@+id/button1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:width="100px"
-            android:height="50px" 
-            android:onClick="onClick"/>
-
+            android:background="@drawable/button"
+            android:height="70px"
+            android:onClick="onClick"
+            android:width="70px" />
+
         <Button
             android:id="@+id/button2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:width="100px"
-            android:height="50px"
-            android:onClick="onClick"
-             />
+            android:background="@drawable/button"
+            android:height="70px"   
+            android:width="70px"
+            android:onClick="onClick" >
 
+</Button>
+
         <Button
             android:id="@+id/button3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:width="100px"
-            android:height="50px" 
-            android:onClick="onClick"/>
+            android:background="@drawable/button"
+            android:height="70px"
+            android:onClick="onClick"
+            android:width="70px" />
 
     </LinearLayout>
 
@@ -52,30 +58,33 @@
         android:layout_height="wrap_content"
         android:gravity="center" 
         android:padding="5px">
-
+
         <Button
             android:id="@+id/button4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:width="100px"
-            android:height="50px" 
-            android:onClick="onClick"/>
-
+            android:background="@drawable/button"
+            android:height="70px"
+            android:onClick="onClick"
+            android:width="70px" />
+
         <Button
             android:id="@+id/button5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:width="100px"
-            android:height="50px" 
-            android:onClick="onClick"/>
-
+            android:background="@drawable/button"
+            android:height="70px"
+            android:onClick="onClick"
+            android:width="70px" />
+
         <Button
             android:id="@+id/button6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:width="100px"
-            android:height="50px" 
-            android:onClick="onClick"/>
+            android:background="@drawable/button"
+            android:height="70px"
+            android:onClick="onClick"
+            android:width="70px" />
 
     </LinearLayout>
 
@@ -85,47 +94,34 @@
         android:layout_height="wrap_content"
         android:gravity="center" 
         android:padding="5px">
-
+
         <Button
             android:id="@+id/button7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:width="100px"
-            android:height="50px" 
-            android:onClick="onClick"/>
-
+            android:background="@drawable/button"
+            android:height="70px"
+            android:onClick="onClick"
+            android:width="70px" />
+
         <Button
             android:id="@+id/button8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:width="100px"
-            android:height="50px" 
-            android:onClick="onClick"/>
-
+            android:background="@drawable/button"
+            android:height="70px"
+            android:onClick="onClick"
+            android:width="70px" />
+
         <Button
             android:id="@+id/button9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:width="100px"
-            android:height="50px" 
-            android:onClick="onClick"/>
+            android:background="@drawable/button"
+            android:height="70px"
+            android:onClick="onClick"
+            android:width="70px" />
 
     </LinearLayout>
-    <LinearLayout
-        android:id="@+id/linearLayout4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center" 
-        android:padding="100px">
-        
-	    <Button
-	        android:id="@+id/reset"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="center_horizontal"
-	        android:padding="20px"
-	        android:text="Reset" />
-	    
-	</LinearLayout>
 
 </LinearLayout>
